@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 /*Создайте локальную функцию в main и вызовите ее. Формальные
 параметры функции – массив целых и строка. Функция должна вернуть
 кортеж, содержащий: максимальный и минимальный элементы массива,
@@ -22,29 +22,14 @@ namespace _2._5lab
             void fun(int[] ar,string st)
             {
                 (int maxElem, int minElem, int sum, string first) cortege;
-                int max = ar[0];
-                for (int j = 0; j < ar.Length; j++)
-                {
-                    if( ar[j]>max)
-                    {
-                        max = ar[j];
-                    }
-                }
-                int min = ar[0];
-                for (int j = 0; j < ar.Length; j++)
-                {
-                    if (ar[j] < min)
-                    {
-                        min = ar[j];
-                    }
-                }
+               
                 int s=0;
                 for (int j = 0; j < ar.Length; j++)
                 {
                     s += ar[j];
                 }
-                cortege.maxElem = max;
-                cortege.minElem = min;
+                cortege.maxElem = ar.Max<int>();
+                cortege.minElem = ar.Min<int>();
                 cortege.sum = s;
                 cortege.first = st.Substring(0, 1);
                 Console.WriteLine(cortege);
